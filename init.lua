@@ -750,6 +750,7 @@ require('lazy').setup({
     },
     opts = {
       notify_on_error = false,
+      --[[ Disable format on save
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
@@ -764,6 +765,8 @@ require('lazy').setup({
           }
         end
       end,
+      -]]
+
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
@@ -884,7 +887,9 @@ require('lazy').setup({
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      require('catppuccin').setup()
+      require('catppuccin').setup({
+        transparent_background = false
+      })
 
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
