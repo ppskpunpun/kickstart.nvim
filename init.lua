@@ -460,7 +460,7 @@ require('lazy').setup({
     end,
   },
 
-  -- LSP Plugins
+  -- LSP Plugin 
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -473,6 +473,7 @@ require('lazy').setup({
       },
     },
   },
+
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
@@ -485,7 +486,17 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        -- Make LSP notification background transparent
+        opts = {
+          notification = {
+            window = {
+              winblend = 0
+            }
+          }
+        }
+      },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -888,7 +899,7 @@ require('lazy').setup({
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require('catppuccin').setup({
-        transparent_background = false
+        transparent_background = true
       })
 
       -- Load the colorscheme here.
