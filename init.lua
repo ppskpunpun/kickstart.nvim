@@ -198,7 +198,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<C-w>t', function()
     vim.cmd('split')
     vim.cmd.term()
-    vim.cmd('resize 10')
+    vim.cmd('resize 8')
+    vim.cmd('set wfh')
 end, { desc = 'Open horizontal splited terminal window' })
 
 -- [[ Basic Autocommands ]]

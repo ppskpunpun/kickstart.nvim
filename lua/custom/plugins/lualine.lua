@@ -8,14 +8,15 @@ return {
                 component_separators = { left = '', right = ''},
                 section_separators = { left = '', right = ''},
                 icons_enabled = true,
+                disabled_filetypes = { 'neo-tree' },
             },
             sections = {
-                lualine_a = {{ 'mode', icon='󰗶' }},
+                lualine_a = {{'mode', icon='󰗶', separator={left=''}}},
                 lualine_b = {'branch', 'diff', 'diagnostics'},
                 lualine_c = {'buffers'},
                 lualine_x = {'encoding', 'fileformat', 'filetype'},
                 lualine_y = {'progress'},
-                lualine_z = {'location'}
+                lualine_z = {{'location', separator={right=''}}}
             },
         })
     end
