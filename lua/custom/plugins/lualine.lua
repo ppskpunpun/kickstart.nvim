@@ -8,7 +8,10 @@ return {
                 component_separators = { left = '', right = ''},
                 section_separators = { left = '', right = ''},
                 icons_enabled = true,
-                disabled_filetypes = { 'neo-tree' },
+                disabled_filetypes = {
+                   winbar = { 'neo-tree' }
+                },
+                globalstatus = true,
             },
             sections = {
                 lualine_a = {{'mode', icon='󰗶', separator={left=''}}},
@@ -18,6 +21,15 @@ return {
                 lualine_y = {'progress'},
                 lualine_z = {{'location', separator={right=''}}}
             },
+            inactive_winbar = {
+                lualine_z = {{
+                    'filename', 'filetype', 'filesize',
+                    cond = function()
+                        return vim.bo.buftype ~= 'terminal'
+                    end
+                }}
+            }
         })
+        
     end
 }
