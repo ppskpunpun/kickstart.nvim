@@ -22,14 +22,13 @@ return {
                 lualine_z = {{'location', separator={right=''}}}
             },
             inactive_winbar = {
-                lualine_z = {{
-                    'filename', 'filetype', 'filesize',
-                    cond = function()
-                        return vim.bo.buftype ~= 'terminal'
-                    end
-                }}
+                -- lualine_z = {{
+                --     'filename', 'filetype', 'filesize',
+                --     cond = function()
+                --         return (vim.bo.buftype ~= 'terminal')
+                --     end
+                -- }}
             }
         })
-        
     end
 }
